@@ -13,9 +13,9 @@ async def detect_api(file_path: str = Query(...),sava_path: str = Query(...)):
     try:
 
         with torch.no_grad(): 
-            save_path = detect(source=file_path,output=sava_path)
+            result = detect(source=file_path,output=sava_path)
 
     except Exception as e:
         return fail(msg=str(e))
     
-    return success(msg=save_path)
+    return success(msg=result)
