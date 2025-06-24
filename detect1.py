@@ -31,6 +31,9 @@ def detect(source,output):
     save_img=False
     classes=0
 
+    has_fires = 0
+    has_smoke = 0
+
     # 判断是否是视频/摄像头流
     webcam = source == '0' or source.startswith('rtsp') or source.startswith('http') or source.endswith('.txt')
 
@@ -117,6 +120,11 @@ def detect(source,output):
 
             print(f'{s}Done. ({t2 - t1:.3f}s)')
 
+            if "fires" in s:
+                has_fires = 1
+            if "smokes" in s:
+                has_smoke = 1
+                
             if view_img:
                 cv2.imshow(p, im0)
                 if cv2.waitKey(1) == ord('q'):
@@ -143,7 +151,18 @@ def detect(source,output):
             os.system('open ' + save_path)
 
     print(f'Done. ({time.time() - t0:.3f}s)')
-    return save_path
+    
+    if has_fires == 1 and has_smoke == 1:
+        # 返回 警告，着火了,并伴有浓烟
+        return "Warning,fire is detected,and there is smoke"
+    if has_smoke == 1 and has_fires == 0:
+        # 警告，有浓烟，可能发生火灾
+        return "Warning,smoke is detected,may cause fire"
+    if has_fires == 1:
+        # 警告，着火了
+        return "Warning,fire is detected"
+    return ""
+
 
 
 
