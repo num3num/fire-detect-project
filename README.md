@@ -11,6 +11,9 @@ about fire,smoke and warning
 
 启动方式：
 ```shell
+conda create -n fire_env python=3.10 -y
+conda activate fire_env
+
 pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
