@@ -1,6 +1,5 @@
 # fire-detect-project
-about fire,smoke and warning
-
+about fire,smoke and warning，是一个前后端分离项目
 ### 安装环境
 ```
     python: 3.6+
@@ -29,3 +28,6 @@ curl -X 'POST' \
 # 方式2：
 localhost:port/docs#
 ```
+
+
+前端启动方式见 /vue目录下README
