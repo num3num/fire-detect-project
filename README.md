@@ -1,33 +1,25 @@
-# fire-detect-project
-about fire,smoke and warning，是一个前后端分离项目
-### 安装环境
 ```
-    python: 3.6+
-    ubuntu16.04 or 18.04
-    darknet (cuda10.0 docker) ***
-    pytorch 1.6+ (cuda10.2 docker)
+此项目使用了vue3+elementPlus
 ```
 
-启动方式：
-```shell
-conda create -n fire_env python=3.10 -y
-conda activate fire_env
-
-pip install -r requirements.txt
-uvicorn main:app --host 0.0.0.0 --port 8000
+安装环境:
 ```
-
-测试方式：
+1.安装node -18.9.0
 ```
-# 方式1：
+项目启动:
+```
+1.打开当前项目路径cmd
+2.npm i
+3.npm run dev
+```
+如需打包:
+```
+npm run build
+```
+测试方式
+```
 curl -X 'POST' \
   'http://127.0.0.1:8000/v1/detect?file_path={file_path}&sava_path={sava_path}' \
   -H 'accept: application/json' \
   -d ''
-
-# 方式2：
-localhost:port/docs#
 ```
-
-
-前端启动方式见 /vue目录下README
