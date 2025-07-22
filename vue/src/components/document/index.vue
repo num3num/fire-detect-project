@@ -301,7 +301,7 @@ const handleChange = () => {
   overflow: hidden;
   background: #eff6ff;
   width: 100vw;
-  height: 92vh;
+  height: 91vh;
 }
 .top {
   width: 100%;
